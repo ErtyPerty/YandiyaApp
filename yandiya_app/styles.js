@@ -1,8 +1,21 @@
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#f8f7f7",
-  },
-  clientBox1: {
+export const Change = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  const styles = StyleSheet.create({
+     container: {
+      flex: 1,
+      backgroundColor: isDarkMode ? '#333' : '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    text: {
+      color: isDarkMode ? '#fff' : '#333',
+    },
+     clientBox1: {
       height: 30,
       width: 260,
       backgroundColor: '#000000',
@@ -50,53 +63,53 @@ const styles = StyleSheet.create({
       top: 300,
       left:-60,
     },
-  image: {
+    image: {
     width: 190,
     height: 200,
     flex: 1,
     position: "absolute",
     top: -45,
     left: 80,
-  },
-  icon: {
+    },
+    icon: {
     width: 200,
     height: 200,
     position: "absolute",
     top: 60,
     right: 35,
-  },
-  image3: {
+    },
+    image3: {
     width: 250,
     height: 90,
     position: "absolute",
     top: -20,
     left: 20,
     borderRadius: 100,
-  },
-  text: {
+    },
+    text: {
     color: "white",
     fontSize: 18,
     lineHeight: 84,
-    textAllign: "right",
+    textAlign: "right",
     position: "absolute",
     top: -5,
     left: 50,
     fontWeight: "bold",
-  },
-  box1: {
+    },
+    box1: {
     backgroundColor: "grey",
     width: 282,
     height: 20,
-  },
-  box2: {
+    },
+    box2: {
     backgroundColor: "grey",
     width: 283,
     height: 21,
     position: "absolute",
     top: 480,
     right: 1,
-  },
-  box3: {
+    },
+    box3: {
     backgroundColor: "grey",
     width: 260,
     height: 70,
@@ -104,8 +117,8 @@ const styles = StyleSheet.create({
     top: 100,
     right: 10,
     borderRadius: 20,
-  },
-  box4: {
+    },
+    box4: {
     backgroundColor: "grey",
     width: 260,
     height: 70,
@@ -113,8 +126,8 @@ const styles = StyleSheet.create({
     top: 200,
     right: 10,
     borderRadius: 20,
-  },
-  box5: {
+    },
+    box5: {
     backgroundColor: "#E42c22",
     width: 270,
     height: 80,
@@ -123,32 +136,32 @@ const styles = StyleSheet.create({
     right: 5,
     borderRadius: 100,
     color: "white",
-  },
-  text1: {
+    },
+    text1: {
     fontSize: 12,
     position: "absolute",
     top: 20,
     right: 40,
     fontWeight: "bold",
     color: "white",
-  },
-  inc: {
+    },
+    inc: {
     color: "black",
     position: "absolute",
     top: 150,
     right: 50,
     fontSize: 18,
     fontWeight: "bold",
-  },
-  commisions: {
+    },
+    commisions: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
     top: 460,
     right: 170,
-  },
-  email: {
+    },
+    email: {
     flex: 1,
     alignContent: "center",
     justifyContent: "center",
@@ -156,18 +169,18 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 120,
     right: 40,
-  },
-  text2: {
+    },
+    text2: {
     color: "white",
     fontSize: 18,
     lineHeight: 84,
-    textAllign: "right",
+    textAlign: "right",
     position: "absolute",
     top: -39,
     left: 90,
     fontWeight: "bold",
-  },
-  epassword: {
+    },
+    epassword: {
     flex: 1,
     alignContent: "center",
     justifyContent: "center",
@@ -175,18 +188,18 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 260,
     right: 40,
-  },
-  text3: {
+    },
+    text3: {
     color: "white",
     fontSize: 18,
     lineHeight: 84,
-    textAllign: "right",
+    textAlign: "right",
     position: "absolute",
     top: 30,
     left: 90,
     fontWeight: "bold",
-  },
-  signUp: {
+    },
+    signUp: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -194,30 +207,14 @@ const styles = StyleSheet.create({
     top: 300,
     right: 94,
     color: "#212121",
-  },
-  logIn: {
+    },
+    logIn: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
     top: 360,
     right: 90,
-  },
-  Back: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    top: -100,
-    right: -20,
-  },
-  Bank: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    top: -150,
-    right: -10,
   },
   settings: {
     flex: 1,
@@ -294,4 +291,9 @@ const styles = StyleSheet.create({
     shadowRadius: 40,
     elevation: 18,
   },
-});
+  });
+
+  return (
+    <View></View>
+  )
+};
