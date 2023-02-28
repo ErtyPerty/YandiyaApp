@@ -32,6 +32,8 @@ export function infoScreen({ navigation: { navigate } }) {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+  //checking values for button to activate
+  
     const [client, setClient] = useState('');
     const [location, setLocation] = useState('');
     const [postCode, setPostCode] = useState('');
@@ -40,6 +42,45 @@ export function infoScreen({ navigation: { navigate } }) {
     const [city, setCity] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [contactPerson, setContactPerson] = useState('');
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+     const handleLocationChange = (text) => {
+      setLocation(text);
+      checkInputsFilled();
+    };
+     const handleAddressChange = (text) => {
+      setAddress(text);
+      checkInputsFilled();
+    };
+     const handleCityChange = (text) => {
+      setCity(text);
+      checkInputsFilled();
+    };
+     const handlepostChange = (text) => {
+      setPostCode(text);
+      checkInputsFilled();
+    };
+     const handlephoneChange = (text) => {
+      setPhoneNumber(text);
+      checkInputsFilled();
+    };
+     const handleEmailChange = (text) => {
+      setEmail(text);
+      checkInputsFilled();
+    };
+     const handleContactChange = (text) => {
+      setContactPerson(text);
+      checkInputsFilled();
+    };
+
+     const checkInputsFilled = () => {
+      if (location && postCode && address && city && email && phoneNumber && contactPerson) {
+        setIsButtonDisabled(false);
+      } else {
+        setIsButtonDisabled(true);
+      }
+    };
+
 
   return (
       <View style={styles.container}>
@@ -93,40 +134,54 @@ export function infoScreen({ navigation: { navigate } }) {
               <TextInput
                 placeholder="Location"
                 style={{ padding: 8, backgroundColor: '#f5f5f5' }}
-                onChangeText={(text) => setLocation(text)}></TextInput>
+                value = {location}
+                onChangeText={handleLocationChange}></TextInput>
               <Text> Client Address:{'\n'}</Text>
               <TextInput
                 placeholder="address"
                 style={{ padding: 8, backgroundColor: '#f5f5f5' }}
-                onChangeText={(text) => setAddress(text)}></TextInput>
+                value ={address}
+                onChangeText={handleAddressChange}></TextInput>
               <Text> Client City:{'\n'}</Text>
               <TextInput
                 placeholder="City"
                 style={{ padding: 8, backgroundColor: '#f5f5f5' }}
-                onChangeText={(text) => setCity(text)}></TextInput>
+                value = {city}
+                onChangeText={handleCityChange}></TextInput>
               <Text> Client post code:{'\n'}</Text>
               <TextInput
                 placeholder="post code"
                 style={{ padding: 8, backgroundColor: '#f5f5f5' }}
-                onChangeText={(text) => setPostCode(text)}></TextInput>
+                value = {postCode}
+                onChangeText={handlepostChange}></TextInput>
               <Text> Client phone number:{'\n'}</Text>
               <TextInput
                 placeholder="phone number"
                 style={{ padding: 8, backgroundColor: '#f5f5f5' }}
-                onChangeText={(text) => setPhoneNumber(text)}></TextInput>
+                value = {phoneNumber}
+                onChangeText={handlephoneChange}></TextInput>
               <Text> Client Email:{'\n'}</Text>
               <TextInput
                 placeholder="Email"
                 style={{ padding: 8, backgroundColor: '#f5f5f5' }}
-                onChangeText={(text) => setEmail(text)}></TextInput>
+                value = {email}
+                onChangeText={handleEmailChange}></TextInput>
               <Text> Contact:{'\n'}</Text>
               <TextInput
                 placeholder="contact person"
                 style={{ padding: 8, backgroundColor: '#f5f5f5' }}
-                onChangeText={(text) => setContactPerson(text)}></TextInput>
+                value= {contactPerson}
+                onChangeText={handleContactChange}></TextInput>
             </View>
           </ScrollView>
+              <Button
+              color="green"
+              onPress={() => navigate('comForm')}
+              title="proceed"
+              disabled={isButtonDisabled}
+
+            />
         </View>
-      </View>
+      </View> 
     );
   }
