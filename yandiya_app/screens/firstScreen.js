@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   image: {
     width: windowWidth,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: 'absolute',
-    top: windowHeight * 0.37,
+    top: windowHeight * 0.3,
     left: windowWidth * 0.33,
     borderRadius: 40,
     fontWeight: 'bold',
