@@ -22,7 +22,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { firstScreen } from './screens/firstScreen';
-import { initialScreen } from './screens/initialScreen';
+import { welcomeScreen } from './screens/welcomeScreen';
 import { clientScreen } from './screens/clientScreen';
 import { infoScreen } from './screens/infoScreen';
 import { loginScreen } from './screens/logInScreen';
@@ -61,7 +61,7 @@ export const Change = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="First" component={firstScreen} />
-        <Stack.Screen name="Welcome" component={initialScreen} />
+        <Stack.Screen name="Welcome" component={welcomeScreen} />
         <Stack.Screen name="main" component={mainScreen} />
         <Stack.Screen name="Sign Up" component={signUpScreen} />
         <Stack.Screen name="Login" component={loginScreen} />
