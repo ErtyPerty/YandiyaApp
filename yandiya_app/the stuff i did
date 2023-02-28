@@ -1,0 +1,24 @@
+ <Text
+            style={{
+              color: 'black',
+              fontSize: 15,
+              position: 'absolute',
+              left: 25,
+              top: 90,
+              textAllign: 'center',
+              fontWeight: 'bold',
+            }}>
+            Installation and commission process
+          </Text>
+          <Text
+            style={{
+              color: 'black',
+              fontSize: 10,
+              position: 'absolute',
+              left: 30,
+              top: 160,
+              textAllign: 'center',
+              fontWeight: 'bold',
+            }}>
+            welcome to the yandiya simple commissions app
+          </Text>
