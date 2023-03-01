@@ -31,6 +31,7 @@ import { homeScreen } from './screens/homeScreen';
 import { settingsScreen } from './screens/settingsScreen';
 import { signUpScreen } from './screens/signUpScreen';
 import { formScreen} from './screens/formScreen';
+import { projectHub} from './screens/projectHub';
 
 const Stack = createStackNavigator();
 
@@ -53,6 +54,7 @@ export const Change = () => {
     <Stack.Screen name="Settings" component={settingsScreen} options={{ headerShown: false }} />
     <Stack.Screen name="LogOut" component={logoutScreen} options={{ headerShown: false }} />
     <Stack.Screen name="comForm" component={formScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="projectHub" component={projectHub} options={{ headerShown: false }} />
   </Stack.Navigator>
 </NavigationContainer>
 
