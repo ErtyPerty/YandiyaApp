@@ -50,21 +50,34 @@ export function settingsScreen({ navigation: { navigate } }) {
             }}
           />
       </TouchableOpacity>
-        <ImageBackground source={bottom} style={{ width: 390,
-      height: 90,
-      position:"absolute",
-      top: 670,
-      left:0,}} />
-        <View
-          style={{
-            height: 30,
-            width: 380,
-            backgroundColor: '#e42c22',
-            borderRadius: 20,
-            position: 'absolute',
-            left: 10,
-            top: 60,
-          }}></View>
+        <View style={styles.container}>
+      <ImageBackground
+        source={bottom}
+        style={{
+          width: 390,
+          height: 90,
+          position: 'absolute',
+          top: 760,
+          left: 0,
+          shadowColor: 'black',
+          shadowRadius: 14.65,
+          shadowOpacity: 5,
+        }}
+      />
+      <View
+        style={{
+          height: 90,
+          width: 405,
+          backgroundColor: '#e42c22',
+          borderRadius: 20,
+          position: 'absolute',
+          left: -8,
+          top: 0,
+          shadowColor: 'red',
+          shadowRadius: 14.65,
+          shadowOpacity: 1,
+        }}
+      />
         <View
           style={{
             height: 520,
