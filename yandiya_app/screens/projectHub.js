@@ -39,6 +39,7 @@ function projectHub({ navigation: { navigate } }) {
 
         {/*Back button styling*/}
         <TouchableOpacity
+          onPress={() => navigate('main')}
           style={{
             position: 'absolute',
             top: 30,
