@@ -14,9 +14,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Constants from 'expo-constants';
 
-// You can import from local files
-import AssetExample from './components/AssetExample';
-
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 
