@@ -119,16 +119,18 @@ export function infoScreen({ navigation: { navigate } }) {
           shadowOpacity: 1,
         }}
       />
-      <ImageBackground
-        source={require('../assets/yandiyaLogo_Wide.png')}
-        style={{
-          width: window.width * 0.6,
-          height: window.height * 0.3,
-          position: 'absolute',
-          top: window.height * -0.04,
-          left: window.width * 0.18,
-        }}
-      />
+      <TouchableOpacity onPress={() => navigate('main')}>
+        <ImageBackground
+          source={icon}
+          style={{
+            width: window.width * 0.6,
+            height: window.height * 0.3,
+            position: 'absolute',
+            top: window.height * -0.04,
+            left: window.width * 0.18,
+          }}
+        />
+      </TouchableOpacity>
       <View
         style={{
           height: 420,
