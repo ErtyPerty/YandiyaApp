@@ -23,7 +23,7 @@ import { Card } from 'react-native-paper';
 const image = { uri: 'https://i.imgur.com/A8WIsR2.png' };
 const icon = { uri: 'https://i.imgur.com/5QVr3RA.png' };
 
-function projectHub({ navigation: { navigate } }) {
+export function projectHub({ navigation: { navigate } }) {
   return (
     //Cool swiping system
     <Swiper
