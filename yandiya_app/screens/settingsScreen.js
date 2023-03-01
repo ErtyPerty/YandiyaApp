@@ -20,6 +20,7 @@ import {
   Switch,
 } from 'react-native';
 
+const window = Dimensions.get('window');
 import ToggleSwitch from './toggleSwitch.js';
 const styles = './styles.js';
 
@@ -37,7 +38,16 @@ export function settingsScreen({ navigation: { navigate } }) {
   };
   return (
       <View style={styles.container}>
-        <ImageBackground source={image} style={styles.image} />
+           <ImageBackground
+        source={require('../assets/yandiyaLogo_Wide.png')}
+        style={{
+          width: window.width * 0.6,
+          height: window.height * 0.3,
+          position: 'absolute',
+          top: window.height * -0.08,
+          left: window.width * 0.45,
+        }}
+      />
         <ImageBackground source={bottom} style={{ width: 390,
       height: 90,
       position:"absolute",
@@ -77,10 +87,14 @@ export function settingsScreen({ navigation: { navigate } }) {
             onPress={() => navigate('LogOut')}
             title="Logout"
           />
+           <Button
+            color="#212121"
+            onPress={() => navigate('comForm')}
+            title="form View"
+          />
           <View style={{ position: 'absolute',
-            top: 90,
+            top: 0,
             right: 90,}}>
-          <ToggleSwitch isDarkMode={isDarkMode} onToggle={toggleDarkMode} />
           </View>
         </View>
       </View>

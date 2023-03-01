@@ -20,7 +20,7 @@ import {
   Dimensions,
   Switch,
 } from 'react-native';
-  
+  const window = Dimensions.get('window');
   const styles = './styles.js';
 
 const image = './assets/yandiyaLogo_Wide.png';
@@ -35,7 +35,16 @@ export function logoutScreen({ navigation: { navigate } }) {
   };
     return (
       <View styles={styles.container}>
-        <ImageBackground source={image} style={styles.image} />
+           <ImageBackground
+        source={require('../assets/yandiyaLogo_Wide.png')}
+        style={{
+          width: window.width * 0.6,
+          height: window.height * 0.3,
+          position: 'absolute',
+          top: window.height * -0.08,
+          left: window.width * 0.45,
+        }}
+      />
         <ImageBackground
           source={bottom}
           style={{
