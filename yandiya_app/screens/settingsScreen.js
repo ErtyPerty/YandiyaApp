@@ -38,16 +38,18 @@ export function settingsScreen({ navigation: { navigate } }) {
   };
   return (
       <View style={styles.container}>
-           <ImageBackground
-        source={require('../assets/yandiyaLogo_Wide.png')}
-        style={{
-          width: window.width * 0.6,
-          height: window.height * 0.3,
-          position: 'absolute',
-          top: window.height * -0.08,
-          left: window.width * 0.45,
-        }}
-      />
+        <TouchableOpacity onPress={() => navigate('main')}>
+          <ImageBackground
+            source={icon}
+            style={{
+              width: window.width * 0.6,
+              height: window.height * 0.3,
+              position: 'absolute',
+              top: window.height * -0.04,
+              left: window.width * 0.18,
+            }}
+          />
+      </TouchableOpacity>
         <ImageBackground source={bottom} style={{ width: 390,
       height: 90,
       position:"absolute",
