@@ -136,6 +136,7 @@ export function homeScreen({ navigation: { navigate } }) {
               {/* BOX NUMBER 1 */}
               {/* Adds fancy touch animation */}
               <TouchableOpacity
+                onPress={() => navigate('projectHub')}
                 style={{
                   height: 220,
                   elevation: 2,
@@ -288,8 +289,8 @@ export function homeScreen({ navigation: { navigate } }) {
               }}>
               <View style={{ flexDirection: 'row' }}>
                 {/* Text */}
-                 <Button
-                  style={{ fontWeight: 'bold', marginLeft: -2,fontSize:1 }}
+                <Button
+                  style={{ fontWeight: 'bold', marginLeft: -2, fontSize: 1 }}
                   color="black"
                   onPress={() => navigate('Info')}
                   title="Bob Dave"
@@ -315,7 +316,7 @@ export function homeScreen({ navigation: { navigate } }) {
               <View style={{ flexDirection: 'row' }}>
                 {/* Text */}
                 <Button
-                  style={{ fontWeight: 'bold', marginLeft: -2,fontSize:1 }}
+                  style={{ fontWeight: 'bold', marginLeft: -2, fontSize: 1 }}
                   color="black"
                   onPress={() => navigate('Info')}
                   title="Sophie York"
@@ -341,7 +342,7 @@ export function homeScreen({ navigation: { navigate } }) {
               <View style={{ flexDirection: 'row' }}>
                 {/* Text */}
                 <Button
-                  style={{ fontWeight: 'bold', marginLeft: -2,fontSize:1 }}
+                  style={{ fontWeight: 'bold', marginLeft: -2, fontSize: 1 }}
                   color="black"
                   onPress={() => navigate('Info')}
                   title="Cameron Carter"
@@ -361,11 +362,12 @@ export function homeScreen({ navigation: { navigate } }) {
             borderTopRightRadius: 20,
           }}>
           {/* Settings Icon - LEADS TO SETTINGS */}
-          <ImageBackground
-            source={settings_image}
-            style={{ height: 30, width: 30, margin: 10 }}
-            onPress = {() => navigate('Settings')}
-          />
+          <TouchableOpacity onPress={() => navigate('Settings')}>
+            <ImageBackground
+              source={settings_image}
+              style={{ height: 30, width: 30, margin: 10 }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
