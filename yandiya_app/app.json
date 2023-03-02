@@ -9,7 +9,25 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "ios": {
+        "supportsTablet": true,
+        "bundleIdentifier": "com.yandiya.yourapp",
+        "buildNumber": "1.0.0",
+        "infoPlist": {
+          "UIBackgroundModes": [
+            "remote-notification"
+          ]
+        }
+      },
+      "android": {
+        "package": "com.yandiya.yourapp",
+        "versionCode": 1,
+        "permissions": [
+          "ACCESS_COARSE_LOCATION",
+          "ACCESS_FINE_LOCATION"
+        ]
+      }
     },
     "updates": {
       "fallbackToCacheTimeout": 0

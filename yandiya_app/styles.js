@@ -8,9 +8,10 @@ export const Change = () => {
   const styles = StyleSheet.create({
      container: {
       flex: 1,
-      backgroundColor: isDarkMode ? '#333' : '#fff',
+      backgroundColor: '#f8f7f7',
       alignItems: 'center',
       justifyContent: 'center',
+
     },
     text: {
       color: isDarkMode ? '#fff' : '#333',
@@ -293,6 +294,9 @@ export const Change = () => {
   checkbox: {
     margin: 8,
   },
+  corner:{
+    
+  }
   });
 
   return (

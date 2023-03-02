@@ -6,7 +6,7 @@ import {
   Button,
   ScrollView,
   SafeAreaView,
-  StatusBar,
+
   Image,
   TextInput,
   Pressable,
@@ -22,16 +22,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 import styled from 'styled-components/native';
 import {Platform} from 'react-native';
 
+
 import { firstScreen } from './screens/firstScreen';
 import { welcomeScreen } from './screens/welcomeScreen';
 import { infoScreen } from './screens/infoScreen';
 import { loginScreen } from './screens/logInScreen';
-import { logoutScreen } from './screens/logoutScreen';
+import { logOut} from './screens/logoutScreen';
 import { homeScreen } from './screens/homeScreen';
 import { settingsScreen } from './screens/settingsScreen';
 import { signUpScreen } from './screens/signUpScreen';
 import { formScreen} from './screens/formScreen';
 import { projectHub} from './screens/projectHub';
+import { preCommission} from './screens/preCom';
 
 const Stack = createStackNavigator();
 
@@ -41,9 +43,8 @@ const window = Dimensions.get('window');
 
 export const Change = () => {
   const window = Dimensions.get('window');
-  
   return (
-    <NavigationContainer>
+<NavigationContainer>
   <Stack.Navigator>
     <Stack.Screen name="First" component={firstScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Welcome" component={welcomeScreen} options={{ headerShown: false }} />
@@ -52,13 +53,12 @@ export const Change = () => {
     <Stack.Screen name="Login" component={loginScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Info" component={infoScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Settings" component={settingsScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="LogOut" component={logoutScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="LogOut" component={logOut} options={{ headerShown: false }} />
     <Stack.Screen name="comForm" component={formScreen} options={{ headerShown: false }} />
     <Stack.Screen name="projectHub" component={projectHub} options={{ headerShown: false }} />
+    <Stack.Screen name="preCom" component={preCommission} options={{ headerShown: false }} />
   </Stack.Navigator>
 </NavigationContainer>
-
   );
 }
-
 export default Change;
