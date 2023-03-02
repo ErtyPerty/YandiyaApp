@@ -114,7 +114,7 @@ export function signUpScreen({ navigation: { navigate } }) {
       <View></View>
       <View
         style={{
-          height: 320,
+          height: 360,
           width: 330,
           backgroundColor: '#ffffff',
           border: 'black',
@@ -148,13 +148,14 @@ export function signUpScreen({ navigation: { navigate } }) {
             onChangeText={handlePasswordChangeAgain}
           />
 
-          <View style={{ position: 'absolute', top: 270, right: 120 }}>
+          <View style={{ position: 'absolute', top: 300, right: 120 }}>
             <Button
               color="green"
               onPress={() => navigate('main')}
               title="Sign Up"
               disabled={isButtonDisabled}
             />
+            <Text onPress={() => navigate('Login')} style={{position :"absolute", top: -40, left: 5 , fontSize: 15, color: "blue"}}>Already a member?</Text>
           </View>
         </ScrollView>
       </View>

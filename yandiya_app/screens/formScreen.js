@@ -26,6 +26,7 @@ const window = Dimensions.get('window');
 import image from '../assets/yandiyaLogo_Small.png';
 import icon from '../assets/yandiyaLogo_Wide.png';
 import bottom from '../assets/bottom.jpg';
+import corner from '../assets/corner.png';
 import Checkbox from 'expo-checkbox';
 
 export function formScreen({ navigation: { navigate } }) {

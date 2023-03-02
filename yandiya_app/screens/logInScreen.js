@@ -1,4 +1,4 @@
-import React, { useEffect, useState, TouchableOpacity, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import {
   View,
@@ -19,20 +19,19 @@ import {
   container,
   Dimensions,
   Switch,
+  TouchableOpacity,
 } from 'react-native';
 const window = Dimensions.get('window');
 const styles = './styles.js';
+import Checkbox from 'expo-checkbox';
 
 import image from '../assets/yandiyaLogo_Small.png';
 import icon from '../assets/yandiyaLogo_Wide.png';
 import bottom from '../assets/bottom.jpg';
 
 export function loginScreen({ navigation: { navigate } }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  
+  const [checked, setChecked] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -96,32 +95,32 @@ export function loginScreen({ navigation: { navigate } }) {
           left: window.width * 0.18,
         }}
       />
-      <Text style={{ fontSize: 28, position: 'absolute', left: 160, top: 160 }}>
+      <Text style={{ fontSize: 38, position: 'absolute', left: 20, top: 160, textDecorationLine: "underline"}}>
         Login
       </Text>
       <View
         style={{
-          height: 250,
-          width: 330,
+          height: 310,
+          width: 360,
           backgroundColor: '#ffffff',
           border: 'black',
           position: 'absolute',
-          left: 30,
-          top: 200,
+          left:15,
+          top: 250,
           borderRadius: 20,
           boxShadow: '10px 10px 40px #454545',
-          borderWidth: 5,
+          borderWidth: 2,
           borderColor: '#000000',
         }}>
         <ScrollView>
-          <Text style={{ marginVertical: 16 }}>{'Input Email'}</Text>
+          <Text style={{ marginVertical: 20 }}>{'Input Email'}</Text>
           <TextInput
             style={{ padding: 8, backgroundColor: '#f5f5f5' }}
             placeholder="enter here"
             value={email}
             onChangeText={handleEmailChange}
           />
-          <Text style={{ marginVertical: 16 }}>{'Input Password'}</Text>
+          <Text style={{ marginVertical: 20 }}>{'Input Password'}</Text>
           <TextInput
             style={{ padding: 8, backgroundColor: '#f5f5f5' }}
             placeholder="enter here"
@@ -129,11 +128,12 @@ export function loginScreen({ navigation: { navigate } }) {
             value={password}
             onChangeText={handlePasswordChange}
           />
+          <Text onPress={() => navigate('Sign Up')} style={{position :"absolute", top: 220, left: 140, fontSize: 15, color: "blue"}}>Sign Up here</Text>
           <View
             style={{
               position: 'absolute',
-              top: 210,
-              right: 120,
+              top: 270,
+              right: 140,
               fontWeight: 'bold',
             }}>
             <Button
