@@ -1,129 +1,62 @@
-import React, { useEffect, useState, TouchableOpacity, useRef } from 'react';
+import * as React from 'react';
+import { Text, View, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import Constants from 'expo-constants';
 
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  ScrollView,
-  SafeAreaView,
-  StatusBar,
-  Image,
-  TextInput,
-  setInput,
-  Pressable,
-  ImageBackground,
-  AppRegistry,
-  Platform,
-  input,
-  container,
-  Dimensions,
-  Switch,
-} from 'react-native';
-const window = Dimensions.get('window');
-const styles = './styles.js';
+// You can import from local files
+import AssetExample from './components/AssetExample';
 
-import image from '../assets/yandiyaLogo_Small.png';
-import icon from '../assets/yandiyaLogo_Wide.png';
-import bottom from '../assets/bottom.jpg';
+// or any pure javascript modules available in npm
+import { Card } from 'react-native-paper';
 
-export function firstScreen({ navigation: { navigate } }) {
-<StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#00BCD4" translucent = {true}/>
+import side from '/corner.png';
+const image = { uri: 'https://i.imgur.com/A8WIsR2.png' }; 
+
+
+export default function App() {
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={bottom}
-        style={{
-          width: 390,
-          height: 90,
-          position: 'absolute',
-          top: 760,
-          left: 0,
-          shadowColor: "black",
-          shadowRadius: 14.65,
-          shadowOpacity: 5,
-        }}
-      />
-      <View
-        style={{
-          height: 90,
-          width: 405,
-          backgroundColor: '#e42c22',
-          borderRadius: 20,
-          position: 'absolute',
-          left: -8,
-          top: 0,
-          shadowColor: "red",
-          shadowRadius: 14.65,
-          shadowOpacity: 1,
-        }}
-      />
-      <ImageBackground
-        source={require('../assets/yandiyaLogo_Wide.png')}
-        style={{
-          width: window.width * 0.6,
-          height: window.height * 0.3,
-          position: 'absolute',
-          top: window.height * -0.04,
-          left: window.width * 0.18,
-        }}
-      />
+    <View style={{flex: 1, height: '100%', backgroundColor: '#f8f7f7'}}>
+      
+      
+      <View style={{height: '40%', backgroundColor: '#e42c22', borderBottomRightRadius: 100}}/>
 
-      <Text style= {{ top: 130, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>"A New World of Warmth"</Text>
+      <ImageBackground source={image} style={styles.initalScreenImage} /> 
 
-      <View
-        style={{
-          height: 320,
-          width: 330,
-          backgroundColor: '#f8f7f7',
-          border: 'black',
-          borderWidth: 2,
-          position: 'absolute',
-          left: 30,
-          top: 250,
-          borderRadius: 20,
-          shadowColor: "black",
-          shadowRadius: 14.65,
-          shadowOpacity: 1,
-        }}>
-        <Text
-          style={{
-            color: 'black',
-            fontSize: 20,
-            position: 'absolute',
-            left: 25,
-            top: 90,
-            textAlign: 'center',
-            fontWeight: 'bold',
-          }}>
-          Installation and Commission Process
-        </Text>
-        <Text
-          style={{
-            color: 'black',
-            fontSize: 15,
-            position: 'absolute',
-            left: 30,
-            top: 160,
-            textAlign: 'center',
-            fontWeight: 'bold',
-          }}>
-          Welcome to the Yandiya Simple Commissions App
-        </Text>
-        <View
+      <ImageBackground source={side} style={{height:100, width: 100}}/> 
+
+      <View style={{height: '60%', backgroundColor: '#f8f7f7', borderTopLeftRadius: 100}}>
+
+        <View style={{height: 300, width: 275, bottom: '6%', backgroundColor: 'white', alignSelf: 'center', borderTopLeftRadius: 100, borderBottomRightRadius: 100, elevation: 3}}>
+
+          <Text style={{alignSelf: 'center', top: '25%', fontSize: 21, fontWeight: 'bold'}}>Commissioning Process</Text>
+          
+          <TouchableOpacity
           style={{
             position: 'absolute',
-            left: 120,
-            top: 250,
-            fontWeight: 'bold',
+            bottom: '30%',
+            left: '30%',
+            backgroundColor: '#32aa46',
+            width: 110,
+            height: 40,
+            borderRadius: 20,
+            justifyContent: 'center',
+            elevation: 5,
           }}>
-          <Button
-            color="green"
-            onPress={() => navigate('Welcome')}
-            title="Welcome"
-          />
+            <Text style={{alignSelf: 'center', fontWeight: 'bold', fontSize: 16, }}>Continue</Text>
+          </TouchableOpacity>
         </View>
       </View>
+      
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  initalScreenImage: { 
+    width: 300, 
+    height: 500, 
+    flex: 1, 
+    position: 'absolute', 
+    right: '11%',
+    top: '-5%'
+  }, 
+});
