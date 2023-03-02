@@ -58,7 +58,7 @@ export function firstScreen({ navigation: { navigate } }) {
           shadowOpacity: 1,
         }}
       />
-       <ImageBackground
+      <ImageBackground
         source={require('../assets/yandiyaLogo_Wide.png')}
         style={{
           width: window.width * 0.6,
@@ -68,6 +68,9 @@ export function firstScreen({ navigation: { navigate } }) {
           left: window.width * 0.18,
         }}
       />
+
+      <Text style= {{ top: 130, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>"A New World of Warmth"</Text>
+
       <View
         style={{
           height: 320,
@@ -86,26 +89,26 @@ export function firstScreen({ navigation: { navigate } }) {
         <Text
           style={{
             color: 'black',
-            fontSize: 15,
+            fontSize: 20,
             position: 'absolute',
             left: 25,
             top: 90,
-            textAllign: 'center',
+            textAlign: 'center',
             fontWeight: 'bold',
           }}>
-          Installation and commission process
+          Installation and Commission Process
         </Text>
         <Text
           style={{
             color: 'black',
-            fontSize: 10,
+            fontSize: 15,
             position: 'absolute',
             left: 30,
             top: 160,
-            textAllign: 'center',
+            textAlign: 'center',
             fontWeight: 'bold',
           }}>
-          welcome to the yandiya simple commissions app
+          Welcome to the Yandiya Simple Commissions App
         </Text>
         <View
           style={{
