@@ -1,103 +1,172 @@
-import React, { useEffect, useState, TouchableOpacity, useRef } from 'react';
+import * as React from 'react'; 
 
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  ScrollView,
-  SafeAreaView,
-  StatusBar,
-  Image,
-  TextInput,
-  setInput,
-  Pressable,
-  ImageBackground,
-  AppRegistry,
-  Platform,
-  input,
-  container,
-  Dimensions,
-  Switch,
-} from 'react-native';
-  const window = Dimensions.get('window');
-  const styles = './styles.js';
+ 
+import { 
+  Text, 
+  View, 
+  StyleSheet, 
+  ImageBackground, 
+  ScrollView, 
+  TextInput, 
+  TouchableOpacity, 
+} from 'react-native'; 
 
-const image = './assets/yandiyaLogo_Wide.png';
-const icon = './assets/yandiyaLogo_Small.png';
-const bottom = './assets/bottom.jpg';
+ 
 
-export function logoutScreen({ navigation: { navigate } }) {
-   const [isDarkMode, setIsDarkMode] = useState(false);
+import Constants from 'expo-constants'; 
+ 
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-    return (
-      <View styles={styles.container}>
-           <ImageBackground
-        source={require('../assets/yandiyaLogo_Wide.png')}
-        style={{
-          width: window.width * 0.6,
-          height: window.height * 0.3,
-          position: 'absolute',
-          top: window.height * -0.08,
-          left: window.width * 0.45,
-        }}
-      />
-        <ImageBackground
-          source={bottom}
-          style={{
-            width: 390,
-            height: 90,
-            position: 'absolute',
-            top: 670,
-            left: 0,
-          }}
-        />
-        <View
-          style={{
-            height: 30,
-            width: 380,
-            backgroundColor: '#e42c22',
-            borderRadius: 20,
-            position: 'absolute',
-            left: 1,
-            top: 60,
-          }}
-        />
-        <Text
-          style={{
-            fontSize: 24,
-            color: 'black',
-            position: 'absolute',
-            top: 250,
-            right: 75,
-          }}>
-          Do you want to sign out ?
-        </Text>
-        <View
-          style={{
-            position: 'absolute',
-            top: 300,
-            right: 170,
-            height: window.height * 0.09,
-            width: window.width * 0.7,
-            backgroundColor: '#252525',
-            border: 'black',
-            position: 'absolute',
-            left: 60,
-            top: 400,
-            borderRadius: 20,
-            boxShadow: '0px 0px 18px #252525',
-          }}>
-          <Button
-            color="#32aa46"
-            onPress={() => navigate('First')}
-            title="Yes"
-          />
-          <Button color="#e42c22" onPress={() => navigate('main')} title="No" />
+import { LinearGradient } from 'expo-linear-gradient'; 
+import { NavigationContainer } from '@react-navigation/native'; 
+import { createStackNavigator } from '@react-navigation/stack'; 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; 
+
+
+const image = { uri: 'https://i.imgur.com/A8WIsR2.png' }; 
+const icon = { uri: 'https://i.imgur.com/5QVr3RA.png' }; 
+
+
+//Menu function 
+ 
+
+function logOut({ navigation: { navigate } }) { 
+  return ( 
+
+    //Setting the background colour and flex 1 to ensure that it covers the entire screen 
+    <View style={{ height: '100%' }}> 
+      <View style={{ backgroundColor: '#f8f7f7', flex: 1 }}> 
+
+        {/* Red border at top */} 
+        <View 
+          style={{ 
+            backgroundColor: '#e42c22', 
+            height: '28%', 
+            borderBottomRightRadius: 20, 
+            borderBottomLeftRadius: 20, 
+            paddingHorizontal: 20, 
+          }}> 
+          <ImageBackground source={icon} style={styles.logOutImage} /> 
+
+        </View> 
+
+        <LinearGradient 
+          colors={['#e42c22', 'transparent']} 
+          style={{ left: 0, right: 0, height: 90, marginTop: -45 }}>
+
+          {/* White Banner */} 
+          <View 
+            style={{ 
+              backgroundColor: 'white', 
+              paddingVertical: 8, 
+              paddingHorizontal: 20, 
+              marginHorizontal: 20, 
+              borderRadius: 15, 
+              marginTop: 10, 
+              height: 60, 
+              justifyContent: 'center',
+            }}> 
+            <Text style={{alignSelf: 'center', fontSize: 22, fontWeight: 'bold'}}>Log Out</Text>
+          </View> 
+
+        </LinearGradient> 
+
+        {/* Middle Box */} 
+        <View style={{backgroundColor: 'white', height: 300, width: 250, top: '7%', alignSelf: 'center', elevation: 3, borderRadius: 20}}>
+
+          {/* Title */} 
+          <Text style={{fontWeight: 'bold', top: '8%', fontSize: 18, textAlign: 'center', alignSelf: 'center'}}>Are you sure you want to log out?</Text>
+
+            {/* Yes button */} 
+            <TouchableOpacity 
+                style={{ 
+                  height: 40, 
+                  elevation: 2, 
+                  backgroundColor: '#32aa46', 
+                  marginTop: '30%',
+                  borderRadius: 15, 
+                  width: 100, 
+                  justifyContent: 'center',
+                  alignSelf: 'center',
+                }}>
+              <Text style={{fontWeight: 'bold', textAlign: 'center', fontSize: 18}}>Yes</Text>
+            </TouchableOpacity>
+
+
+            {/* No button */} 
+            <TouchableOpacity
+                style={{ 
+                  height: 40, 
+                  elevation: 2, 
+                  backgroundColor: '#e42c22', 
+                  marginTop: '10%',
+                  borderRadius: 15, 
+                  width: 100, 
+                  justifyContent: 'center',
+                  alignSelf: 'center',
+                }}>
+              <Text style={{fontWeight: 'bold', textAlign: 'center', fontSize: 18}}>No</Text>
+              
+            </TouchableOpacity>
+      
         </View>
+
       </View>
-    );
-  }
+    </View>
+  ); 
+} 
+
+ 
+ 
+
+const Stack = createStackNavigator(); 
+
+ 
+ 
+
+function MyDrawer() { 
+
+  return ( 
+
+    <Stack.Navigator useLegacyImplementation> 
+
+      <Stack.Screen name="LogOut" component={logOut} options={{headerShown: false}}/> 
+
+    </Stack.Navigator> 
+
+  ); 
+
+} 
+
+ 
+ 
+
+export default function App() { 
+
+  return ( 
+
+    <NavigationContainer> 
+
+      <MyDrawer /> 
+
+    </NavigationContainer> 
+
+  ); 
+
+} 
+
+ 
+ 
+
+const styles = StyleSheet.create({ 
+  logOutImage: { 
+    width: 190, 
+    height: 200, 
+    position: 'absolute',  
+    right: '25%', 
+  }, 
+}); 
+
+ 
+ 
+
+ 
