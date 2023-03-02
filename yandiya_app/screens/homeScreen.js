@@ -170,6 +170,7 @@ export function homeScreen({ navigation: { navigate } }) {
 
               {/* BOX NUMBER 2 */}
               <TouchableOpacity
+                onPress={() => navigate('projectHub')}
                 style={{
                   height: 220,
                   elevation: 2,
@@ -201,6 +202,7 @@ export function homeScreen({ navigation: { navigate } }) {
 
               {/* BOX NUMBER 3 */}
               <TouchableOpacity
+                onPress={() => navigate('projectHub')}
                 style={{
                   height: 220,
                   elevation: 2,
