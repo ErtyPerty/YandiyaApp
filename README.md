@@ -6,4 +6,4 @@ App designed for Yandiya commissions, got sum rules!!!
 
 Please remind me to port this repository to the Yandiya account; it would be unwise to keep it hosted on my personal account, but it should do for now!
 
-Will was here
+will is a turd
