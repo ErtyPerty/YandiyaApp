@@ -6,7 +6,6 @@ import {
   Button,
   ScrollView,
   SafeAreaView,
-
   Image,
   TextInput,
   Pressable,
@@ -22,7 +21,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import styled from 'styled-components/native';
 import {Platform} from 'react-native';
 
-
 import { firstScreen } from './screens/firstScreen';
 import { welcomeScreen } from './screens/welcomeScreen';
 import { infoScreen } from './screens/infoScreen';
@@ -32,20 +30,20 @@ import { homeScreen } from './screens/homeScreen';
 import { settingsScreen } from './screens/settingsScreen';
 import { signUpScreen } from './screens/signUpScreen';
 import { formScreen} from './screens/formScreen';
-import { projectHub} from './screens/projectHub';
+import { projectHub} from './screens/projectHub';  
 import { preCommission} from './screens/preCom';
+import { helpScreen} from './screens/helpScreen';
+import { settingsInfo } from './screens/settingsInfo';
 
 const Stack = createStackNavigator();
-
 const window = Dimensions.get('window');
 
 //   <Checkbox style={styles.checkbox} value={checked} onValueChange={setChecked} />
 
 export const Change = () => {
-  const window = Dimensions.get('window');
   return (
 <NavigationContainer>
-  <Stack.Navigator>
+  <Stack.Navigator  screenOptions={{ gestureEnabled: false }}>
     <Stack.Screen name="First" component={firstScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Welcome" component={welcomeScreen} options={{ headerShown: false }} />
     <Stack.Screen name="main" component={homeScreen} options={{ headerShown: false }} />
@@ -57,6 +55,8 @@ export const Change = () => {
     <Stack.Screen name="comForm" component={formScreen} options={{ headerShown: false }} />
     <Stack.Screen name="projectHub" component={projectHub} options={{ headerShown: false }} />
     <Stack.Screen name="preCom" component={preCommission} options={{ headerShown: false }} />
+    <Stack.Screen name="Help" component={helpScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="settingsInfo" component={settingsInfo} options={{ headerShown: false }} />
   </Stack.Navigator>
 </NavigationContainer>
   );
