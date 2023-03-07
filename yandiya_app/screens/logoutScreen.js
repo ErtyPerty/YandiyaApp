@@ -86,6 +86,7 @@ export function logOut({ navigation: { navigate } }) {
 
           {/* Yes button */}
           <TouchableOpacity
+            onPress={( ) => navigate("First")}
             style={{
               height: 40,
               elevation: 2,
@@ -104,6 +105,7 @@ export function logOut({ navigation: { navigate } }) {
 
           {/* No button */}
           <TouchableOpacity
+            onPress={() => navigate('Settings')}
             style={{
               height: 40,
               elevation: 2,

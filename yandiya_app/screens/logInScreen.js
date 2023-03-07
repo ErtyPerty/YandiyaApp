@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-
 import {
   View,
   Text,
@@ -20,17 +19,23 @@ import {
   Dimensions,
   Switch,
   TouchableOpacity,
+  Linking,
 } from 'react-native';
-const window = Dimensions.get('window');
-const styles = './styles.js';
-import Checkbox from 'expo-checkbox';
+import Constants from 'expo-constants';
 
-import image from '../assets/yandiyaLogo_Small.png';
-import icon from '../assets/yandiyaLogo_Wide.png';
-import bottom from '../assets/bottom.jpg';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+// or any pure javascript modules available in npm
+import { Card } from 'react-native-paper';
+
+const icon = { uri: 'https://i.imgur.com/5QVr3RA.png' };
+
+import facebook from '../assets/facebook.jpg';
+import google from '../assets/google.jpg';
+import linkedin from '../assets/linkedin.jpg';
 
 export function loginScreen({ navigation: { navigate } }) {
-  
   const [checked, setChecked] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -46,6 +51,19 @@ export function loginScreen({ navigation: { navigate } }) {
     checkInputsFilled();
   };
 
+  const handleEmailPress = () => {
+    Linking.openURL('mailto:example@gmail.com');
+  };
+  const handleLinkedInPress = () => {
+    Linking.openURL('https://www.linkedin.com/in/your-profile-url');
+  };
+  const handleFacebookPress = () => {
+    Linking.openURL('https://en-gb.facebook.com/in/your-profile-url');
+  };
+  const handleGooglePress = () => {
+    Linking.openURL('https://accounts.google.com/signin/recovery/lookup');
+  };
+
   const checkInputsFilled = () => {
     if (email && password) {
       setIsButtonDisabled(false);
@@ -53,98 +71,150 @@ export function loginScreen({ navigation: { navigate } }) {
       setIsButtonDisabled(true);
     }
   };
-
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={bottom}
-        style={{
-          width: 390,
-          height: 90,
-          position: 'absolute',
-          top: 760,
-          left: 0,
-          shadowColor: 'black',
-          shadowRadius: 14.65,
-          shadowOpacity: 5,
-        }}
-      />
+    <View style={{ flex: 1, backgroundColor: '#f8f7f7' }}>
       <View
         style={{
-          height: 90,
-          width: 405,
-          backgroundColor: '#e42c22',
-          borderRadius: 20,
-          position: 'absolute',
-          left: -8,
-          top: 0,
-          border: 'red',
-          borderWidth: 2,
-          shadowColor: 'red',
-          shadowRadius: 14.65,
-          shadowOpacity: 1,
-        }}
-      />
-      <ImageBackground
-        source={require('../assets/yandiyaLogo_Wide.png')}
-        style={{
-          width: window.width * 0.6,
-          height: window.height * 0.3,
-          position: 'absolute',
-          top: window.height * -0.04,
-          left: window.width * 0.18,
-        }}
-      />
-      <Text style={{ fontSize: 38, position: 'absolute', left: 20, top: 160, textDecorationLine: "underline"}}>
-        Login
-      </Text>
-      <View
-        style={{
-          height: 310,
-          width: 360,
-          backgroundColor: '#ffffff',
-          border: 'black',
-          position: 'absolute',
-          left:15,
-          top: 250,
-          borderRadius: 20,
-          boxShadow: '10px 10px 40px #454545',
-          borderWidth: 2,
-          borderColor: '#000000',
+          height: '20%',
+          backgroundColor: 'red',
+          borderBottomLeftRadius: 30,
+          borderBottomRightRadius: 30,
+          elevation: 15,
+          justifyContent: 'center',
         }}>
-        <ScrollView>
-          <Text style={{ marginVertical: 20 }}>{'Input Email'}</Text>
+        <Text
+          style={{
+            fontSize: 28,
+            fontWeight: 'bold',
+            width: '50%',
+            textAlign: 'center',
+            left: '5%',
+            color: 'white',
+          }}>
+          Yandiya Technologies
+        </Text>
+
+        <ImageBackground source={icon} style={styles.outImage} />
+      </View>
+
+      <View style={{ alignItems: 'center', marginTop: 20 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+          "A new world of warmth"
+        </Text>
+      </View>
+
+      <View
+        style={{ justifyContent: 'center', top: '5%', alignSelf: 'center' }}>
+        <View
+          style={{
+            height: 400,
+            width: 300,
+            backgroundColor: 'white',
+            borderBottomRightRadius: 100,
+            borderTopLeftRadius: 100,
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              alignSelf: 'center',
+              top: 0,
+              fontWeight: 'bold',
+            }}>
+            Login
+          </Text>
+          <Text style={{ marginVertical: 18, left: 30 }}>{'Input Email'}</Text>
           <TextInput
             style={{ padding: 8, backgroundColor: '#f5f5f5' }}
             placeholder="enter here"
-            value={email}
             onChangeText={handleEmailChange}
           />
-          <Text style={{ marginVertical: 20 }}>{'Input Password'}</Text>
+          <Text style={{ marginVertical: 18, left: 30}}>{'Input Password'}</Text>
           <TextInput
             style={{ padding: 8, backgroundColor: '#f5f5f5' }}
             placeholder="enter here"
             secureTextEntry
-            value={password}
             onChangeText={handlePasswordChange}
           />
-          <Text onPress={() => navigate('Sign Up')} style={{position :"absolute", top: 220, left: 140, fontSize: 15, color: "blue"}}>Sign Up here</Text>
-          <View
+          <Button
+          title = "continue"
+          onPress  = {() => navigate("main")}
+          disabled = { isButtonDisabled}
+        />
+        </View>
+      </View>
+      <View
+        style={{
+          height: '10%',
+          backgroundColor: 'red',
+          bottom: '0%',
+          width: '100%',
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
+          elevation: 3,
+          justifyContent: 'center',
+          position: 'absolute',
+        }}>
+        <TouchableOpacity
+          onPress={() => navigate('Sign Up')}
+          style={{
+            height: 30,
+            width: 140,
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignSelf: 'center',
+            borderRadius: 10,
+          }}>
+          <Text style={{ textAlign: 'center', fontSize: 18 }}>
+            Sign Up 
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleFacebookPress}>
+          <ImageBackground
+            source={facebook}
             style={{
+              height: 40,
+              width: 40,
               position: 'absolute',
-              top: 270,
-              right: 140,
-              fontWeight: 'bold',
-            }}>
-            <Button
-              color="green"
-              onPress={() => navigate('main')}
-              title="Log In"
-              disabled={isButtonDisabled}
-            />
-          </View>
-        </ScrollView>
+              left: 60,
+              top: -220,
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleGooglePress}>
+          <ImageBackground
+            source={google}
+            style={{
+              height: 40,
+              width: 40,
+              position: 'absolute',
+              left: 150,
+              top: -220,
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleLinkedInPress}>
+          <ImageBackground
+            source={linkedin}
+            style={{
+              height: 40,
+              width: 40,
+              position: 'absolute',
+              left: 240,
+              top: -220,
+            }}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  outImage: {
+    width: 190,
+    height: 200,
+    flex: 1,
+    position: 'absolute',
+    right: '-5%',
+  },
+});

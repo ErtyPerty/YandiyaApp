@@ -1,11 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  TouchableOpacity,
-  useRef,
-  useContext,
-} from 'react';
-
+import React, { useEffect, useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -25,23 +18,28 @@ import {
   container,
   Dimensions,
   Switch,
+  TouchableOpacity,
+  Linking,
 } from 'react-native';
-const window = Dimensions.get('window');
-const styles = './styles.js';
+import Constants from 'expo-constants';
 
-import image from '../assets/yandiyaLogo_Small.png';
-import icon from '../assets/yandiyaLogo_Wide.png';
-import bottom from '../assets/bottom.jpg';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+// or any pure javascript modules available in npm
+import { Card } from 'react-native-paper';
+
+const icon = { uri: 'https://i.imgur.com/5QVr3RA.png' };
+
+import facebook from '../assets/facebook.jpg';
+import google from '../assets/google.jpg';
+import linkedin from '../assets/linkedin.jpg';
 
 export function signUpScreen({ navigation: { navigate } }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const [checked, setChecked] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordagain, setpasswordagain] = useState('');
+  const [passwordAgain, setPasswordAgain] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const handleEmailChange = (text) => {
@@ -55,120 +53,181 @@ export function signUpScreen({ navigation: { navigate } }) {
   };
 
   const handlePasswordChangeAgain = (text) => {
-    setpasswordagain(text);
+    setPasswordAgain(text);
     checkInputsFilled();
   };
 
+  const handleEmailPress = () => {
+    Linking.openURL('mailto:example@gmail.com');
+  };
+  const handleLinkedInPress = () => {
+    Linking.openURL('https://www.linkedin.com/in/your-profile-url');
+  };
+  const handleFacebookPress = () => {
+    Linking.openURL('https://en-gb.facebook.com/in/your-profile-url');
+  };
+  const handleGooglePress = () => {
+    Linking.openURL('https://accounts.google.com/signin/recovery/lookup');
+  };
+
   const checkInputsFilled = () => {
-    if (email && password && passwordagain) {
+    if (email && password && passwordAgain) {
       setIsButtonDisabled(false);
     } else {
       setIsButtonDisabled(true);
     }
   };
-
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={bottom}
-        style={{
-          width: 390,
-          height: 90,
-          position: 'absolute',
-          top: 760,
-          left: 0,
-          shadowColor: 'black',
-          shadowRadius: 14.65,
-          shadowOpacity: 5,
-        }}
-      />
+    <View style={{ flex: 1, backgroundColor: '#f8f7f7' }}>
       <View
         style={{
-          height: 90,
-          width: 405,
-          backgroundColor: '#e42c22',
-          borderRadius: 20,
-          position: 'absolute',
-          left: -8,
-          top: 0,
-          border: 'red',
-          borderWidth: 2,
-          shadowColor: 'red',
-          shadowRadius: 14.65,
-          shadowOpacity: 1,
-        }}
-      />
-      <ImageBackground
-        source={require('../assets/yandiyaLogo_Wide.png')}
-        style={{
-          width: window.width * 0.6,
-          height: window.height * 0.3,
-          position: 'absolute',
-          top: window.height * -0.04,
-          left: window.width * 0.18,
-        }}
-      />
-      <Text style={{ fontSize: 28, position: 'absolute', left: 160, top: 160 }}>
-        Sign Up
-      </Text>
-      <View></View>
-      <View
-        style={{
-          height: 360,
-          width: 330,
-          backgroundColor: '#ffffff',
-          border: 'black',
-          position: 'absolute',
-          left: 30,
-          top: 200,
-          borderRadius: 20,
-          boxShadow: '10px 10px 40px #454545',
-          borderWidth: 5,
-          borderColor: '#000000',
+          height: '20%',
+          backgroundColor: 'red',
+          borderBottomLeftRadius: 30,
+          borderBottomRightRadius: 30,
+          elevation: 15,
+          justifyContent: 'center',
         }}>
-        <ScrollView>
-          <Text style={{ marginVertical: 16 }}>{'Input Email'}</Text>
+        <Text
+          style={{
+            fontSize: 28,
+            fontWeight: 'bold',
+            width: '50%',
+            textAlign: 'center',
+            left: '5%',
+            color: 'white',
+          }}>
+          Yandiya Technologies
+        </Text>
+
+        <ImageBackground source={icon} style={styles.outImage} />
+      </View>
+
+      <View style={{ alignItems: 'center', marginTop: 20 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+          "A new world of warmth"
+        </Text>
+      </View>
+
+      <View
+        style={{ justifyContent: 'center', top: '5%', alignSelf: 'center' }}>
+        <View
+          style={{
+            height: 450,
+            width: 300,
+            backgroundColor: 'white',
+            borderBottomLeftRadius: 100,
+            borderTopRightRadius: 100,
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              alignSelf: 'center',
+              top: 0,
+              fontWeight: 'bold',
+            }}>
+            Sign Up
+          </Text>
+          <Text style={{ marginVertical: 16, left: 30  }}>{'Input Email'}</Text>
           <TextInput
             style={{ padding: 8, backgroundColor: '#f5f5f5' }}
             placeholder="enter here"
             onChangeText={handleEmailChange}
           />
-          <Text style={{ marginVertical: 16 }}>{'Input Password'}</Text>
+          <Text style={{ marginVertical: 16 , left: 30 }}>{'Input Password'}</Text>
           <TextInput
             style={{ padding: 8, backgroundColor: '#f5f5f5' }}
             placeholder="enter here"
             secureTextEntry
             onChangeText={handlePasswordChange}
           />
-          <Text style={{ marginVertical: 16 }}>{'Re-enter Password'}</Text>
+          <Text style={{ marginVertical: 16, left: 30  }}>{'Re-enter Password'}</Text>
           <TextInput
             style={{ padding: 8, backgroundColor: '#f5f5f5' }}
             placeholder="enter here"
             secureTextEntry
             onChangeText={handlePasswordChangeAgain}
           />
-
-          <View style={{ position: 'absolute', top: 300, right: 120 }}>
-            <Button
-              color="green"
-              onPress={() => navigate('main')}
-              title="Sign Up"
-              disabled={isButtonDisabled}
-            />
-            <Text onPress={() => navigate('Login')} style={{position :"absolute", top: -40, left: 5 , fontSize: 15, color: "blue"}}>Already a member?</Text>
-          </View>
-        </ScrollView>
+           <Button
+          title = "continue"
+          onPress  = {() => navigate("main")}
+          disabled = { isButtonDisabled}
+        />
+        </View>
+      </View>
+      <View
+        style={{
+          height: '10%',
+          backgroundColor: 'red',
+          bottom: '0%',
+          width: '100%',
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
+          elevation: 3,
+          justifyContent: 'center',
+          position: 'absolute',
+        }}>
+        <TouchableOpacity
+          onPress={() => navigate('Login')}
+          style={{
+            height: 30,
+            width: 140,
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignSelf: 'center',
+            borderRadius: 10,
+          }}>
+          <Text style={{ textAlign: 'center', fontSize: 18}}>
+            Login instead
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleFacebookPress}>
+          <ImageBackground
+            source={facebook}
+            style={{
+              height: 40,
+              width: 40,
+              position: 'absolute',
+              left: 100,
+              top: -220,
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleGooglePress}>
+          <ImageBackground
+            source={google}
+            style={{
+              height: 40,
+              width: 40,
+              position: 'absolute',
+              left: 190,
+              top: -220,
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleLinkedInPress}>
+          <ImageBackground
+            source={linkedin}
+            style={{
+              height: 40,
+              width: 40,
+              position: 'absolute',
+              left: 280,
+              top: -220,
+            }}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
 
-export function HomeScreenWithContext({ navigation }) {
-  const { name } = useContext(UserContext);
-
-  return (
-    <UserContext.Provider value={{ name }}>
-      <homeScreen />
-    </UserContext.Provider>
-  );
-}
+const styles = StyleSheet.create({
+  outImage: {
+    width: 190,
+    height: 200,
+    flex: 1,
+    position: 'absolute',
+    right: '-5%',
+  },
+});

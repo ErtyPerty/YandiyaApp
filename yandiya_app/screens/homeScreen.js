@@ -77,8 +77,7 @@ export function homeScreen({ navigation: { navigate } }) {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            {/* Text Input */}
-            {/*<TextInput
+            <TextInput
               placeholder="Search"
               placeholderTextColor="black"
               style={{
@@ -86,7 +85,7 @@ export function homeScreen({ navigation: { navigate } }) {
                 fontSize: 16,
                 width: 260,
               }}>
-            </TextInput>*/}
+            </TextInput>
           </View>
         </LinearGradient>
 

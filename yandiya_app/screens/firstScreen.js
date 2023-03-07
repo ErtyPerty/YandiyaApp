@@ -5,8 +5,12 @@ import {
   StyleSheet,
   ImageBackground,
   TouchableOpacity,
+  Button,
+  Linking,
 } from 'react-native';
 import Constants from 'expo-constants';
+
+//facebook, linkedin, googleT
 
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
@@ -14,7 +18,20 @@ import { Card } from 'react-native-paper';
 import side from '../assets/corner.png';
 const image = { uri: 'https://i.imgur.com/A8WIsR2.png' };
 
-export function firstScreen({navigation: {navigate}}) {
+export function firstScreen({ navigation: { navigate } }) {
+  const handleEmailPress = () => {
+    Linking.openURL('mailto:example@gmail.com');
+  };
+  const handleLinkedInPress = () => {
+    Linking.openURL('https://www.linkedin.com/in/your-profile-url');
+  };
+  const handleFacebookPress = () => {
+    Linking.openURL('https://en-gb.facebook.com/in/your-profile-url');
+  };
+  const handleGooglePress = () => {
+    Linking.openURL('https://accounts.google.com/signin/recovery/lookup');
+  };
+
   return (
     <View style={{ flex: 1, height: '100%', backgroundColor: '#f8f7f7' }}>
       <View
@@ -68,7 +85,8 @@ export function firstScreen({navigation: {navigate}}) {
               justifyContent: 'center',
               elevation: 5,
             }}>
-            <Text onPress={() => navigate('Welcome')}
+            <Text
+              onPress={() => navigate('Welcome')}
               style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: 16 }}>
               Continue
             </Text>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, TouchableOpacity, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import {
   View,
@@ -18,6 +18,7 @@ import {
   input,
   container,
   Dimensions,
+  TouchableOpacity,
   Switch,
 } from 'react-native';
 const styles = './styles.js';
@@ -129,6 +130,22 @@ export function infoScreen({ navigation: { navigate } }) {
           left: window.width * 0.18,
         }}
       />
+      <TouchableOpacity
+          onPress ={() => navigate("main")}
+          style={{
+            position: 'absolute',
+            top: 30,
+            left: 0,
+            backgroundColor: 'white',
+            width: 75,
+            height: 50,
+            borderBottomRightRadius: 20,
+            borderTopRightRadius: 20,
+            justifyContent: 'center',
+          }}>
+          {/*Back Button Text*/}
+          <Text style={styles.topBackButton}>Back</Text>
+        </TouchableOpacity>
       <View
         style={{
           height: 420,
@@ -203,6 +220,7 @@ export function infoScreen({ navigation: { navigate } }) {
           title="proceed"
           disabled={isButtonDisabled}
         />
+        
       </View>
     </View>
   );

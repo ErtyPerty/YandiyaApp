@@ -70,39 +70,31 @@ export function welcomeScreen({ navigation: { navigate } }) {
       <View
         style={{
           height: 50,
-          width: 330,
-          backgroundColor: '#f8f7f7',
+          width: 130,
+          backgroundColor: '#32aa46',
           border: 'black',
-          borderWidth: 2,
           position: 'absolute',
-          left: 30,
+          left: 130,
           top: 500,
           borderRadius: 20,
-          shadowColor: 'black',
-          shadowRadius: 14.65,
-          shadowOpacity: 1,
         }}>
           <Button
             color="black"
             onPress={() => navigate('Sign Up')}
             title="Sign Up"
-            style={styles.button}
+            style={{fontWeight: "bold"}}
           />
           </View>
            <View
         style={{
           height: 50,
-          width: 330,
-          backgroundColor: '#f8f7f7',
+          width: 130,
+          backgroundColor: '#32aa46',
           border: 'black',
-          borderWidth: 2,
           position: 'absolute',
-          left: 30,
+          left: 130,
           top: 570,
           borderRadius: 20,
-          shadowColor: 'black',
-          shadowRadius: 14.65,
-          shadowOpacity: 1,
         }}>
           <Button
             style={styles.button}

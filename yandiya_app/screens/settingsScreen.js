@@ -27,79 +27,96 @@ const styles = './styles.js';
 import image from '../assets/yandiyaLogo_Small.png';
 import icon from '../assets/yandiyaLogo_Wide.png';
 import bottom from '../assets/bottom.jpg';
+import side from '../assets/corner.png';
 
 export function settingsScreen({ navigation: { navigate } }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const toggleDarkMode = () => {};
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={bottom}
-        style={{
-          width: 390,
-          height: 90,
-          position: 'absolute',
-          top: 760,
-          left: 0,
-          shadowColor: 'black',
-          shadowRadius: 14.65,
-          shadowOpacity: 5,
-        }}
-      />
+    <View style={{ flex: 1, height: '100%', backgroundColor: '#f8f7f7' }}>
       <View
         style={{
-          height: 90,
-          width: 405,
+          height: '40%',
           backgroundColor: '#e42c22',
-          borderRadius: 20,
-          position: 'absolute',
-          left: -8,
-          top: 0,
-          shadowColor: 'red',
-          shadowRadius: 14.65,
-          shadowOpacity: 1,
+          borderBottomRightRadius: 100,
         }}
       />
-      <ImageBackground
-        source={require('../assets/yandiyaLogo_Wide.png')}
-        style={{
-          width: window.width * 0.6,
-          height: window.height * 0.3,
-          position: 'absolute',
-          top: window.height * -0.04,
-          left: window.width * 0.18,
-        }}
-      />
+
+      <ImageBackground source={image} style={style.initalScreenImage} />
+
+      <ImageBackground source={side} style={{ height: 100, width: 100 }} />
+
       <View
         style={{
-          height: 180,
-          width: 330,
+          height: '60%',
           backgroundColor: '#f8f7f7',
-          border: 'black',
-          position: 'absolute',
-          left: 30,
-          top: 240,
-          borderRadius: 20,
-          boxShadow: '0px 0px 18px #252525',
-          borderWidth: 2,
-          borderColor: '#000000',
+          borderTopLeftRadius: 100,
         }}>
-        <Button color="#212121" onPress={() => navigate('')} title="Info" />
-        <Button
-          color="#212121"
-          onPress={() => navigate('LogOut')}
-          title="Logout"
-        />
-        <Button
-          color="#212121"
-          onPress={() => navigate('')}
-          title="Help"
-        />
-        <View style={{ position: 'absolute', top: 0, right: 90 }}></View>
+        <View
+          style={{
+            height: 300,
+            width: 275,
+            bottom: '6%',
+            backgroundColor: 'white',
+            alignSelf: 'center',
+            borderTopLeftRadius: 100,
+            borderBottomRightRadius: 100,
+            elevation: 3,
+          }}>
+          <Button
+            color="#212121"
+            onPress={() => navigate('LogOut')}
+            title="Logout"
+          />
+          <Button
+            color="#212121"
+            onPress={() => navigate('Help')}
+            title="Contact us"
+          />
+          <Button
+            color="#212121"
+            onPress={() => navigate('settingsInfo')}
+            title="About us"
+          />
+          <View style={{ position: 'absolute', top: 0, right: 90 }}></View>
+        </View>
       </View>
+      <TouchableOpacity
+        onPress={() => navigate('main')}
+        style={{
+          position: 'absolute',
+          top: 30,
+          left: 0,
+          backgroundColor: 'white',
+          width: 75,
+          height: 50,
+          borderBottomRightRadius: 20,
+          borderTopRightRadius: 20,
+          justifyContent: 'center',
+        }}>
+        <Text
+          style={{
+            color: 'black',
+            fontSize: 22,
+            position: 'absolute',
+            left: 12,
+            top: 10,
+          }}>
+          Back
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
+
+const style = StyleSheet.create({
+  initalScreenImage: {
+    width: 300,
+    height: 500,
+    flex: 1,
+    position: 'absolute',
+    right: '11%',
+    top: '-5%',
+  },
+});

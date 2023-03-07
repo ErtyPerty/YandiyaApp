@@ -14,16 +14,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Constants from 'expo-constants';
 
-// You can import from local files
-import AssetExample from './components/AssetExample';
-
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 
 const image = { uri: 'https://i.imgur.com/A8WIsR2.png' };
 const icon = { uri: 'https://i.imgur.com/5QVr3RA.png' };
 
-function projectHub({ navigation: { navigate } }) {
+export function projectHub({ navigation: { navigate } }) {
   return (
     //Cool swiping system
     <Swiper
@@ -36,6 +33,7 @@ function projectHub({ navigation: { navigate } }) {
       <View style={styles.slide}>
         {/*Back button styling*/}
         <TouchableOpacity
+        onPress= {() => navigate("main")}
           style={{
             position: 'absolute',
             top: 30,
@@ -141,6 +139,7 @@ function projectHub({ navigation: { navigate } }) {
           </View>
         </View>
         <TouchableOpacity
+        onPress = {() => navigate('preCom')}
           style={{
             alignItems: 'center',
             alignSelf: 'center',
