@@ -14,13 +14,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Constants from 'expo-constants';
 
+// You can import from local files
+import AssetExample from './components/AssetExample';
+
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 
 const image = { uri: 'https://i.imgur.com/A8WIsR2.png' };
 const icon = { uri: 'https://i.imgur.com/5QVr3RA.png' };
 
-export function projectHub({ navigation: { navigate } }) {
+function projectHub({ navigation: { navigate } }) {
   return (
     //Cool swiping system
     <Swiper
@@ -29,14 +32,10 @@ export function projectHub({ navigation: { navigate } }) {
       activeDotColor="#e42c22"
       nextButton={<Text style={styles.forwardButton} />}
       prevButton={<Text style={styles.backButton} />}>
-
-
       {/*Slide number 1*/}
       <View style={styles.slide}>
-
         {/*Back button styling*/}
         <TouchableOpacity
-          onPress={() => navigate('main')}
           style={{
             position: 'absolute',
             top: 30,
@@ -48,7 +47,6 @@ export function projectHub({ navigation: { navigate } }) {
             borderTopRightRadius: 20,
             justifyContent: 'center',
           }}>
-
           {/*Back Button Text*/}
           <Text style={styles.topBackButton}>Back</Text>
         </TouchableOpacity>
@@ -58,14 +56,12 @@ export function projectHub({ navigation: { navigate } }) {
 
         {/*Project Hub Banner*/}
         <View style={styles.projectHubBanner}>
-
           {/*Title Text*/}
           <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Project Hub</Text>
         </View>
 
         {/*Middle section*/}
         <View style={styles.projectMiddleSection}>
-
           {/*Title text*/}
           <Text style={styles.projectHubTitle}>
             Customer Plans & Dimensions
@@ -91,8 +87,21 @@ export function projectHub({ navigation: { navigate } }) {
             </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            top: '5%',
+            height: 40,
+            elevation: 2,
+            backgroundColor: '#e42c22',
+            borderRadius: 15,
+            width: 140,
+          }}>
+          <Text style={{ fontWeight: 'bold' }}>Continue</Text>
+        </TouchableOpacity>
       </View>
-
 
 
       {/*Slide number 2*/}
@@ -131,9 +140,21 @@ export function projectHub({ navigation: { navigate } }) {
             </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            top: '5%',
+            height: 40,
+            elevation: 2,
+            backgroundColor: '#e42c22',
+            borderRadius: 15,
+            width: 140,
+          }}>
+          <Text style={{ fontWeight: 'bold' }}>Continue</Text>
+        </TouchableOpacity>
       </View>
-
-
 
       {/*Slide number 3*/}
       <View style={styles.slide}>
@@ -142,14 +163,12 @@ export function projectHub({ navigation: { navigate } }) {
 
         {/*Project Hub Banner*/}
         <View style={styles.projectHubBanner}>
-
           {/*Title Text*/}
           <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Project Hub</Text>
         </View>
 
         {/*Middle section*/}
         <View style={styles.projectMiddleSection}>
-
           {/*Title text*/}
           <Text style={styles.projectHubTitle}>Temperature Policy</Text>
           <Text style={styles.projectHubText2}>Some interesting text here</Text>
@@ -167,12 +186,24 @@ export function projectHub({ navigation: { navigate } }) {
                 borderRadius: 15,
                 width: 140,
               }}>
-
               <Text style={{ fontWeight: 'bold' }}>PDF</Text>
-
             </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            top: '5%',
+            height: 40,
+            elevation: 2,
+            backgroundColor: '#e42c22',
+            borderRadius: 15,
+            width: 140,
+          }}>
+          <Text style={{ fontWeight: 'bold' }}>Continue</Text>
+        </TouchableOpacity>
       </View>
 
       {/*Slide number 4*/}
@@ -182,14 +213,12 @@ export function projectHub({ navigation: { navigate } }) {
 
         {/*Project Hub Banner*/}
         <View style={styles.projectHubBanner}>
-
           {/*Title Text*/}
           <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Project Hub</Text>
         </View>
 
         {/*Middle section*/}
         <View style={styles.projectMiddleSection}>
-
           {/*Title text*/}
           <Text style={styles.projectHubTitle}>Technical Specification</Text>
           <Text style={styles.projectHubText}>Some interesting text here</Text>
@@ -207,12 +236,24 @@ export function projectHub({ navigation: { navigate } }) {
                 borderRadius: 15,
                 width: 140,
               }}>
-
               <Text style={{ fontWeight: 'bold' }}>PDF</Text>
-
             </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            top: '5%',
+            height: 40,
+            elevation: 2,
+            backgroundColor: '#e42c22',
+            borderRadius: 15,
+            width: 140,
+          }}>
+          <Text style={{ fontWeight: 'bold' }}>Continue</Text>
+        </TouchableOpacity>
       </View>
 
       {/*Slide number 5*/}
@@ -222,14 +263,12 @@ export function projectHub({ navigation: { navigate } }) {
 
         {/*Project Hub Banner*/}
         <View style={styles.projectHubBanner}>
-
           {/*Title Text*/}
           <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Project Hub</Text>
         </View>
 
         {/*Middle section*/}
         <View style={styles.projectMiddleSection}>
-
           {/*Title text*/}
           <Text style={styles.projectHubTitle}>Heating Layout Plan</Text>
           <Text style={styles.projectHubText2}>Some interesting text here</Text>
@@ -247,12 +286,24 @@ export function projectHub({ navigation: { navigate } }) {
                 borderRadius: 15,
                 width: 140,
               }}>
-
               <Text style={{ fontWeight: 'bold' }}>PDF</Text>
-
             </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            top: '5%',
+            height: 40,
+            elevation: 2,
+            backgroundColor: '#e42c22',
+            borderRadius: 15,
+            width: 140,
+          }}>
+          <Text style={{ fontWeight: 'bold' }}>Continue</Text>
+        </TouchableOpacity>
       </View>
 
       {/*Slide number 6*/}
@@ -262,14 +313,12 @@ export function projectHub({ navigation: { navigate } }) {
 
         {/*Project Hub Banner*/}
         <View style={styles.projectHubBanner}>
-
           {/*Title Text*/}
           <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Project Hub</Text>
         </View>
 
         {/*Middle section*/}
         <View style={styles.projectMiddleSection}>
-
           {/*Title text*/}
           <Text style={styles.projectHubTitle}>Installation Guide</Text>
           <Text style={styles.projectHubText2}>Some interesting text here</Text>
@@ -287,12 +336,24 @@ export function projectHub({ navigation: { navigate } }) {
                 borderRadius: 15,
                 width: 140,
               }}>
-
               <Text style={{ fontWeight: 'bold' }}>PDF</Text>
-
             </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            alignSelf: 'center',
+            justifyContent: 'center',
+            top: '5%',
+            height: 40,
+            elevation: 2,
+            backgroundColor: '#e42c22',
+            borderRadius: 15,
+            width: 140,
+          }}>
+          <Text style={{ fontWeight: 'bold' }}>Continue</Text>
+        </TouchableOpacity>
       </View>
     </Swiper>
   );
